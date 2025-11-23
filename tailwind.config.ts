@@ -46,17 +46,17 @@ export default {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+          elevated: "hsla(var(--card-elevated))",
+          border: "hsla(var(--card-border))",
         },
-        sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-          accent: "hsl(var(--sidebar-accent))",
-          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          border: "hsl(var(--sidebar-border))",
-          ring: "hsl(var(--sidebar-ring))",
+        heritage: {
+          green: "hsl(var(--heritage-green))",
+          "green-hover": "hsl(var(--heritage-green-hover))",
         },
+      },
+      fontFamily: {
+        display: ['Cormorant Garamond', 'serif'],
+        body: ['Proza Libre', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",
