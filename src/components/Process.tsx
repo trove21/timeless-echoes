@@ -1,69 +1,58 @@
-import { Home, Palette, FileCheck, Hammer, Key } from "lucide-react";
+import { useParallax } from "@/hooks/useScrollAnimation";
 
 const steps = [
   {
-    number: "01",
-    icon: Home,
-    title: "INITIAL VISIT",
-    description: "We begin by understanding your vision and evaluating your home's historic character.",
+    number: "I",
+    title: "Architectural Discovery",
+    description: "Deep analysis of your home's original design intent and structural integrity.",
   },
   {
-    number: "02",
-    icon: Palette,
-    title: "DESIGN PHASE",
-    description: "Develop architectural plans that honor period details while meeting modern needs.",
+    number: "II",
+    title: "Historical Research",
+    description: "Sourcing period-appropriate materials and understanding architectural context.",
   },
   {
-    number: "03",
-    icon: FileCheck,
-    title: "PERMIT PHASE",
-    description: "Navigate historic preservation requirements and secure necessary approvals.",
+    number: "III",
+    title: "Artisan Restoration",
+    description: "Expert craftspeople employ traditional techniques to preserve authenticity.",
   },
   {
-    number: "04",
-    icon: Hammer,
-    title: "RESTORE PHASE",
-    description: "Expert craftspeople meticulously restore your home with period-appropriate techniques.",
-  },
-  {
-    number: "05",
-    icon: Key,
-    title: "REVEAL",
-    description: "Experience your beautifully restored home, ready for contemporary living.",
+    number: "IV",
+    title: "Modern Integration",
+    description: "Seamlessly incorporate contemporary systems while honoring historic character.",
   },
 ];
 
 export const Process = () => {
+  const chapterRef = useParallax({ speed: 0.2 });
+
   return (
-    <section id="process" className="py-32 px-6 bg-muted/20">
-      <div className="max-w-6xl mx-auto">
-        <p className="text-label text-center mb-6 text-muted-foreground">
-          O U R &nbsp; P R O C E S S
-        </p>
+    <section id="philosophy" className="relative py-24 md:py-32 lg:py-40 px-6 md:px-10 lg:px-16">
+      <div
+        ref={chapterRef}
+        className="text-chapter-number font-display absolute top-0 left-0 pointer-events-none select-none"
+        style={{ top: 0, left: '-1.25rem' }}
+      >
+        03
+      </div>
 
-        <h2 className="text-section-title font-display text-center mb-20">
-          Five Steps to Restoration
-        </h2>
+      <div className="max-w-5xl mx-auto pt-24">
+        <h2 className="text-editorial-title font-display mb-16">THE METHOD</h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div className="space-y-0">
           {steps.map((step) => (
             <div
               key={step.number}
-              className="bg-card-elevated border border-card-border rounded p-8 hover-float hover:border-heritage-green/40 transition-all duration-500"
+              className="flex items-start gap-6 md:gap-10 py-10 border-b border-border/50 transition-all duration-300 hover:pl-5 hover:bg-muted/20"
             >
-              <div className="text-7xl font-display font-light text-heritage-green/10 mb-6">
-                {step.number}
+              <span className="font-display text-2xl opacity-50 pt-1">{step.number}</span>
+
+              <div className="flex-1">
+                <h3 className="font-display text-3xl md:text-4xl font-light mb-4">
+                  {step.title}
+                </h3>
+                <p className="text-editorial-body text-base">{step.description}</p>
               </div>
-
-              <step.icon className="w-12 h-12 text-heritage-green mb-6" strokeWidth={1} />
-
-              <h3 className="text-xl font-display font-semibold mb-4 tracking-wider">
-                {step.title}
-              </h3>
-
-              <p className="text-sm font-body opacity-80 leading-relaxed">
-                {step.description}
-              </p>
             </div>
           ))}
         </div>
